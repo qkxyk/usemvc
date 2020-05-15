@@ -2,6 +2,6 @@
 .git
 *.git
 .vscode
-.web/bin
-.web/obj
+web/bin
+web/obj
 
