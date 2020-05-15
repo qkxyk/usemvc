@@ -1,0 +1,7 @@
+.obj
+.git
+*.git
+.vscode
+.web/bin
+.web/obj
+
