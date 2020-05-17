@@ -4,4 +4,5 @@
 .vscode
 web/bin
 web/obj
+appsettings.json
 
