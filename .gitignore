@@ -4,4 +4,5 @@ obj/
 web/bin/
 web/obj/
 web/appsettings.*
+.vscode/
 
