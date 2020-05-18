@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,11 +8,11 @@ using MvcMovie.Data;
 using web.Models;
 
 namespace web.Controllers {
-    public class HelloWorldController : Controller {
-        private readonly ILogger<HelloWorldController> _log;
+    public class MovieController : Controller {
+        private readonly ILogger<MovieController> _log;
         private readonly MvcMovieContext context;
 
-        public HelloWorldController (ILogger<HelloWorldController> log, MvcMovieContext context) {
+        public MovieController (ILogger<MovieController> log, MvcMovieContext context) {
             this._log = log;
             this.context = context;
         }
@@ -22,8 +23,13 @@ namespace web.Controllers {
         //     ViewData["NumTimes"]= numTimes;
         //     return View ();
         // }
-        public async Task<IActionResult> Index () {
-            return View (await context.Movie.ToListAsync ());
+        public async Task<IActionResult> Index (string searchString) {
+            var movie = context.Movie.AsNoTracking();
+            if(!string.IsNullOrWhiteSpace(searchString)){
+                movie = movie.Where(a=>a.Title.Contains(searchString));
+            }
+
+            return View (await movie.ToListAsync ());
         }
         public async Task<IActionResult> Details (int? id) {
             if (id == null) {
