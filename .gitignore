@@ -3,6 +3,6 @@ Release/
 obj/
 web/bin/
 web/obj/
-web/appsettings.*
+web/appsettings.json
 .vscode/
 
