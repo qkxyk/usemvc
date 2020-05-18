@@ -1,8 +1,5 @@
-Debug/
-Release/
-obj/
-web/bin/
-web/obj/
-web/appsettings.json
+/web/bin/
+/web/obj/
+/web/appsettings.*
 .vscode/
 
